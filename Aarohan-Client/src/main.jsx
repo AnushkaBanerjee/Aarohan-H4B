@@ -5,6 +5,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import Login from './pages/Login/Login'
 import LandingPageMain from './pages/Landing/LandingPageMain/LandingPageMain'
 import { NextUIProvider } from "@nextui-org/react";
+import SignupPage from './pages/Signup/SignupPage'
 
 
 const router = createBrowserRouter(
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
       {/* auth  */}
      
       <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignupPage />} />
       
 
       {/* landing */}
