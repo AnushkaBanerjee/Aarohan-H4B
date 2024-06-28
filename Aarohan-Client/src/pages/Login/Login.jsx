@@ -11,8 +11,8 @@ export default function Login() {
 
   return (
     <div
-      // className="bg-cover h-screen"
-      // style={{ backgroundImage: `url(${LoginBg})` }}
+      className="bg-cover h-screen"
+      style={{ backgroundImage: `url(${LoginBg})` }}
     >
       <div className=" bg-gradient-to-tr from-blue-default to-blue-teal opacity-15 blur-sm"></div>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
