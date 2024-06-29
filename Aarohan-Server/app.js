@@ -28,5 +28,13 @@ app.use("/api/v1/classes", classRouter)
 import chatRouter from './src/routes/chat.routes.js'
 app.use("/api/v1/chats", chatRouter)
 
+// Material Endpoints
+import materialRouter from './src/routes/material.routes.js'
+app.use("/api/v1/materials", materialRouter)
+
+// Assignment Endpoints
+import assignmentRouter from './src/routes/assignment.routes.js'
+app.use("/api/v1/assignments", assignmentRouter)
+
 
 export { app }
