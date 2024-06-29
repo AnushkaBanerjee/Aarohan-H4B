@@ -8,7 +8,8 @@ import { NextUIProvider } from "@nextui-org/react";
 import SignupPage from './pages/Signup/SignupPage.jsx'
 import MentorDashboardMain from './pages/MentorDashboard/MentorDashboardMain/MentorDashboardMain.jsx'
 import CreateCourse from './pages/MentorDashboard/Submodules/CreateCourse/CreateCourse.jsx'
-
+import {mentorInfoLoader} from'./pages/MentorDashboard/MentorDashboardMain/MentorDashboardMain.jsx'
+import {mentorMyCoursesInfoLoader} from'./pages/MentorDashboard/Submodules/CreateCourse/CreateCourse.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(

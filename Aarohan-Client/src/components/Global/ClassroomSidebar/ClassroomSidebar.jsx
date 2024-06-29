@@ -3,11 +3,15 @@ import React, { useState } from 'react';
 import CompanyLogo from '../../../assets/Logo/LogoLogo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import TimelineIcon from '@mui/icons-material/Timeline';
-import SchoolIcon from '@mui/icons-material/School';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import CastForEducationIcon from '@mui/icons-material/CastForEducation';
+import PeopleIcon from '@mui/icons-material/People';
 import {Tooltip} from "@nextui-org/react";
-const Sidebar = ({title,menuItems,userRole}) => {
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+
+const ClassroomSidebar = ({title,menuItems,userRole}) => {
   const [selected, setSelected] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -53,21 +57,36 @@ const Sidebar = ({title,menuItems,userRole}) => {
               </Tooltip>
             }
 
-            {item.name === 'My Progress' &&
-              <Tooltip content="My Progress" placement="right" color='primary'>
-              <PsychologyIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} />
+            {item.name === 'Analytics' &&
+              <Tooltip content="Analytics" placement="right" color='primary'>
+              <AnalyticsIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} />
               </Tooltip>
               }
 
-            {item.name === 'My Roadmap' &&
-              <Tooltip content="My Roadmap" placement="right" color='primary'>
-              <TimelineIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} /> 
+            {item.name === 'Resources' &&
+              <Tooltip content="Resources" placement="right" color='primary'>
+              <MenuBookIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} /> 
               </Tooltip>
               }
 
-            {item.name === 'My Courses' &&
-              <Tooltip content="My Courses" placement="right" color='primary'>
-              <SchoolIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} /> 
+            {item.name === 'Assignments' &&
+              <Tooltip content="Assignments" placement="right" color='primary'>
+              <AssignmentIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} /> 
+              </Tooltip>
+              }
+            {item.name === 'Live Classes' &&
+              <Tooltip content="Live Classes" placement="right" color='primary'>
+              <CastForEducationIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} /> 
+              </Tooltip>
+              }
+            {item.name === 'Members' &&
+              <Tooltip content="Members" placement="right" color='primary'>
+              <PeopleIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} /> 
+              </Tooltip>
+              }
+            {item.name === 'Join Invitations' &&
+              <Tooltip content="Join Invitations  " placement="right" color='primary'>
+              <PersonAddIcon className={`text-xl ${selected === item.name ? 'text-blue-default' : 'text-[#A3AED0]'} hover:text-blue-default`} /> 
               </Tooltip>
               }
 
@@ -81,4 +100,4 @@ const Sidebar = ({title,menuItems,userRole}) => {
   );
 }
 
-export default Sidebar;
+export default ClassroomSidebar;

@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { Avatar, Button, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Chip } from "@nextui-org/react";
 import axios from 'axios';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { Backend_url } from '../../../BackendUrl.js';
+import { Backend_url } from '../../../BackendUrl';
 import { useNavigate } from "react-router-dom";
 
 function Profile({ isStudent, userData }) {

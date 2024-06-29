@@ -7,11 +7,55 @@ import IconButton from '@mui/material/IconButton';
 import Profile from '../../Profile/Profile';
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure} from "@nextui-org/react";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-function ProfileBar({isStudent}) {
+import axios from 'axios';
+import { Backend_url } from '../../../../BackendUrl';
+import { useNavigate } from 'react-router-dom';
+
+
+function ProfileBar({isStudent,image,userData,setReload}) {
+  const navigate = useNavigate();
   const {isOpen, onOpen, onClose} = useDisclosure();
   const openProfile = () => {
     onOpen();
   }
+
+  const getCookie = (name) => {
+    const cookieString = document.cookie;
+    const cookies = cookieString.split('; ');
+    for (let cookie of cookies) {
+        const [cookieName, cookieValue] = cookie.split('=');
+        if (cookieName === name) {
+            return cookieValue;
+        }
+    }
+    return null;
+};
+
+  const logout = async () => {
+    try {
+      const accessToken = getCookie("accessToken");
+      if (!accessToken) {
+        console.error("Access token not found");
+      }
+      const response = await axios.post(
+        `${Backend_url}/api/v1/users/logout`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      document.cookie =
+        "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie =
+        "refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        navigate("/login");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className='w-full bg-transparent flex justify-end sm:justify-between p-2 items-center'>
       <div className='ml-2 hidden sm:block'>
@@ -38,11 +82,11 @@ function ProfileBar({isStudent}) {
 
           <Dropdown>
             <DropdownTrigger>
-              <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" className='cursor-pointer' />
+              <Avatar src={image} className='cursor-pointer' />
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions" color='primary'>
               <DropdownItem key="new" onClick={openProfile} >Profile</DropdownItem>
-              <DropdownItem key="delete" className="text-danger" color="danger">
+              <DropdownItem key="delete" onClick={logout} className="text-danger" color="danger">
                 Logout
               </DropdownItem>
             </DropdownMenu>
@@ -55,7 +99,7 @@ function ProfileBar({isStudent}) {
             <>
               <ModalHeader className="flex flex-col gap-1">Profile</ModalHeader>
               <ModalBody>
-                <Profile isStudent={isStudent}/>
+                <Profile isStudent={isStudent} userData={userData} setReload={setReload} />
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
