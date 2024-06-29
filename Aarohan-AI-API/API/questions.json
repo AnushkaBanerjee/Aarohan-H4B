@@ -1,0 +1,106 @@
+{
+    "semester": 3,
+    "course": "Discrete Mathematics",
+    "questions": [
+        {
+            "question": "What is the cardinality of the power set of a set with 5 elements?",
+            "options": [
+                "5",
+                "10",
+                "16",
+                "32"
+            ],
+            "answer": "4"
+        },
+        {
+            "question": "Which of the following is a valid logical equivalence?",
+            "options": [
+                "p \u2192 q \u2261 \u00acp \u2192 \u00acq",
+                "p \u2227 q \u2261 \u00ac(p \u2228 \u00acq)",
+                "p \u2228 q \u2261 \u00ac(p \u2227 \u00acq)",
+                "p \u2194 q \u2261 \u00acp \u2194 \u00acq"
+            ],
+            "answer": "3"
+        },
+        {
+            "question": "What is the coefficient of x^2y^3 in the expansion of (x + 2y)^5?",
+            "options": [
+                "10",
+                "40",
+                "80",
+                "160"
+            ],
+            "answer": "3"
+        },
+        {
+            "question": "How many different ways can you arrange the letters in the word 'MISSISSIPPI'?",
+            "options": [
+                "11!",
+                "7!",
+                "3! * 4! * 2!",
+                "11! / (4! * 4! * 2!)"
+            ],
+            "answer": "4"
+        },
+        {
+            "question": "Which of the following is a graph that is both a tree and a complete graph?",
+            "options": [
+                "A cycle graph with 3 vertices",
+                "A star graph with 5 vertices",
+                "A path graph with 4 vertices",
+                "A complete graph with 2 vertices"
+            ],
+            "answer": "4"
+        },
+        {
+            "question": "What is the chromatic number of a bipartite graph?",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "Depends on the number of vertices"
+            ],
+            "answer": "2"
+        },
+        {
+            "question": "Which of the following is a recursive definition for the Fibonacci sequence?",
+            "options": [
+                "F(n) = F(n-1) + F(n-2)",
+                "F(n) = F(n-1) * F(n-2)",
+                "F(n) = F(n-1) + 1",
+                "F(n) = 2 * F(n-1)"
+            ],
+            "answer": "1"
+        },
+        {
+            "question": "What is the solution to the recurrence relation T(n) = 2T(n/2) + n with base case T(1) = 1?",
+            "options": [
+                "O(n log n)",
+                "O(n^2)",
+                "O(n)",
+                "O(log n)"
+            ],
+            "answer": "1"
+        },
+        {
+            "question": "What is the principle of mathematical induction used for?",
+            "options": [
+                "To prove statements about sets",
+                "To prove statements about graphs",
+                "To prove statements about functions",
+                "To prove statements about natural numbers"
+            ],
+            "answer": "4"
+        },
+        {
+            "question": "What is the Pigeonhole Principle?",
+            "options": [
+                "If there are more pigeons than pigeonholes, then at least one pigeonhole must contain more than one pigeon.",
+                "If there are more pigeonholes than pigeons, then at least one pigeonhole must contain more than one pigeon.",
+                "If there are the same number of pigeons and pigeonholes, then each pigeonhole must contain exactly one pigeon.",
+                "None of the above"
+            ],
+            "answer": "1"
+        }
+    ]
+}

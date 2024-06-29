@@ -1,0 +1,46 @@
+{
+    "semester": 3, // this has to be a single integer only
+    "course": "Computer Organization", // THis has to be a single string only
+    "duration": "3 weeks", // THis has to be a single string only
+    "study_time_per_day": "1.5 hours", // THis has to be a single string only
+
+    "roadmap":[ // this is the main part. Pay close attention here, I dont want any misplaced data type
+        // inside the roadmap array we will have n weeks, where n corresponds to the time that the user has to prepare for, given in "duration"
+        {
+            "week": 1, // this has to be a single integer only
+            "work": {
+                "names":["topic1","topic2","topic3"], // a list of strings, covering the topics that the user has to cover in this week
+                "desctiption": "Description of the topic and a general approach", // only a string
+                "todo":[ // this is a list of tasks that the user has to do in this week, make sure that the tasks are string only, i dont want you changing it into anything else
+                    "task 1",
+                    "task 2",
+                    "task 3"
+                ]
+            }
+        },
+        {
+            "week": 2, // this has to be a single integer only
+            "work": {
+                "names": ["topic1","topic2","topic3"], // a list of strings, covering the topics that the user has to cover in this week
+                "desctiption": "Description of the topic and a general approach", // only a string
+                "todo":[ // this is a list of tasks that the user has to do in this week, make sure that the tasks are string only, i dont want you changing it into anything else
+                    "task 1",
+                    "task 2",
+                    "task 3"
+                ]
+            }
+        },
+        {
+            "week": 3, // this has to be a single integer only
+            "work": {
+                "names": ["topic1","topic2","topic3"], // a list of strings, covering the topics that the user has to cover in this week
+                "desctiption": "Description of the topic and a general approach", // only a string
+                "todo":[ // this is a list of tasks that the user has to do in this week, make sure that the tasks are string only, i dont want you changing it into anything else
+                    "task 1",
+                    "task 2",
+                    "task 3"
+                ]
+            }
+        }
+    ]
+}

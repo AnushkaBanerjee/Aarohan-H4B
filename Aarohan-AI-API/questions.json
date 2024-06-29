@@ -1,0 +1,106 @@
+{
+    "semester": 3,
+    "course": "Discrete Mathematics",
+    "questions": [
+        {
+            "question": "What is the cardinality of the power set of a set with 5 elements?",
+            "options": [
+                "5",
+                "10",
+                "16",
+                "32"
+            ],
+            "answer": 4
+        },
+        {
+            "question": "Which of the following is a valid proof technique for proving a statement is true for all natural numbers?",
+            "options": [
+                "Induction",
+                "Contradiction",
+                "Direct Proof",
+                "All of the above"
+            ],
+            "answer": 4
+        },
+        {
+            "question": "What is the solution to the recurrence relation T(n) = 2T(n/2) + n, where T(1) = 1?",
+            "options": [
+                "O(n log n)",
+                "O(n^2)",
+                "O(n)",
+                "O(log n)"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is the chromatic number of a complete graph with 6 vertices?",
+            "options": [
+                "2",
+                "3",
+                "4",
+                "6"
+            ],
+            "answer": 4
+        },
+        {
+            "question": "What is the value of the Eulerian path in the following graph?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "What is the minimum number of edges required to connect n vertices in a tree?",
+            "options": [
+                "n",
+                "n-1",
+                "n+1",
+                "n^2"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Which of the following is a valid graph representation?",
+            "options": [
+                "Adjacency Matrix",
+                "Adjacency List",
+                "Incidence Matrix",
+                "All of the above"
+            ],
+            "answer": 4
+        },
+        {
+            "question": "What is the difference between a graph and a digraph?",
+            "options": [
+                "Digraphs have directed edges, graphs have undirected edges",
+                "Graphs are a subset of digraphs",
+                "Digraphs are a subset of graphs",
+                "There is no difference"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is the relationship between a Hamiltonian cycle and a Eulerian cycle?",
+            "options": [
+                "A Hamiltonian cycle must be a Eulerian cycle",
+                "A Eulerian cycle must be a Hamiltonian cycle",
+                "A Hamiltonian cycle and a Eulerian cycle are independent",
+                "A Hamiltonian cycle is a special case of a Eulerian cycle"
+            ],
+            "answer": 3
+        },
+        {
+            "question": "What is the difference between a tree and a forest?",
+            "options": [
+                "A tree is a connected graph with no cycles, a forest is a disconnected graph with no cycles",
+                "A forest is a connected graph with no cycles, a tree is a disconnected graph with no cycles",
+                "A tree is a subset of a forest",
+                "A forest is a subset of a tree"
+            ],
+            "answer": 1
+        }
+    ]
+}

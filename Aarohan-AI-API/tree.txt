@@ -1,0 +1,25 @@
+.
+|-- API
+|   |-- main.py
+|   `-- questions.json
+|-- README.md
+|-- RoadmapGenerator
+|   |-- __pycache__
+|   |   `-- main.cpython-311.pyc
+|   |-- main.py
+|   |-- questions.json
+|   `-- test_framework.json
+|-- questions.json
+|-- requirements.txt
+|-- static
+|   `-- syllabus
+|       |-- 1_2.pdf
+|       |-- 3.pdf
+|       |-- 4.pdf
+|       |-- 5.pdf
+|       |-- 6.pdf
+|       |-- 7.pdf
+|       `-- 8.pdf
+`-- tree.txt
+
+6 directories, 17 files

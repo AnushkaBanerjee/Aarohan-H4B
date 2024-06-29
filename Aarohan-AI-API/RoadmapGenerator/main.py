@@ -533,6 +533,8 @@ QUESTIONANSWERFORMAT = '''
         }
 '''
 
+
+
 def generateRoadmap(timeAvailable:int, unit:str, subject:str, semester:int, studytimeDaily:float , jsonFormat:str):
     prompt = f'Generate a JSON roadmap for Semester {semester} for {subject} with {timeAvailable} {unit} of time available, studying for {studytimeDaily} per day. Stick to this format of json data {jsonFormat} and ** do not change any keys. Only put in the values that you find. Any change in keys is undesirable **'
     result = model.generate_content(prompt)
@@ -552,9 +554,13 @@ def generateQuestion(subject:str, semester:int, subtopics:str, format:str):
     result = model.generate_content(prompt)
     return result.text
 
-def moderate_json_content(text):
-    try:
-        text = text.split('```json')[1].split('```')[0].strip()
-        return json.loads(text)
-    except:
-        return 'Could not process the generated questions'
+
+# now generate a json file from the above functions
+# text = generateQuestion('Discrete Mathematics', 3, QUESTIONANSWERFORMAT)
+# json_data = makeJSON(text)
+
+#put the json data into a file
+
+# with open('questions.json', 'w') as f:
+#     json.dump(json_data, f, indent=4)
+    # print('File created successfully')
