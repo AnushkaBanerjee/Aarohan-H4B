@@ -2,10 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import Login from './pages/Login/Login'
-import LandingPageMain from './pages/Landing/LandingPageMain/LandingPageMain'
+import Login from './pages/Login/Login.jsx'
+import LandingPageMain from './pages/Landing/LandingPageMain/LandingPageMain.jsx'
 import { NextUIProvider } from "@nextui-org/react";
-import SignupPage from './pages/Signup/SignupPage'
+import SignupPage from './pages/Signup/SignupPage.jsx'
+import MentorDashboardMain from './pages/MentorDashboard/MentorDashboardMain/MentorDashboardMain.jsx'
+import CreateCourse from './pages/MentorDashboard/Submodules/CreateCourse/CreateCourse.jsx'
 
 
 const router = createBrowserRouter(
@@ -19,6 +21,11 @@ const router = createBrowserRouter(
 
       {/* landing */}
       <Route path="" element={<LandingPageMain />}/>
+
+      {/* mentor dashboard */}
+      <Route path="/Mentor/" loader={mentorInfoLoader} element={<MentorDashboardMain />}>
+        <Route path="Home" loader={mentorMyCoursesInfoLoader} element={<CreateCourse />} />
+      </Route>
         
     </Route>
   )
