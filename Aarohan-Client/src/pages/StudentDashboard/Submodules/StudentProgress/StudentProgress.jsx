@@ -184,7 +184,7 @@ function StudentProgress() {
 
           </div>
         </div>)}
-        {chart === 2 && (
+      {chart === 2 && (
           <div className='text-center md:flex md:justify-center'>
             <div className='md:mr-16'>
               <Gauge
@@ -209,6 +209,138 @@ function StudentProgress() {
             
           </div>
         )}
+      {chart === 3 && (
+          <div className='text-center'>
+            <Typography variant="h6" component="div" sx={{ m: 2, textAlign: "left", paddingLeft: "10px" }}>
+              Performance
+            </Typography>
+            <LineChart
+              grid={{ horizontal: true }}
+              xAxis={[
+                {
+                  scaleType: 'point',
+                  data: lineWeeks,
+                  label: 'Time',// Adjust this value if needed
+                },
+              ]}
+              yAxis={[
+                { id: 'Full Marks', scaleType: 'linear' },
+                { id: 'Obtained Marks', scaleType: 'linear' },
+              ]}
+              series={[
+                { yAxisKey: 'Full Marks', data: lineFullMarks, label: 'Full Marks' },
+                { yAxisKey: 'Obtained Marks', data: lineMarks, label: 'Obtained Marks' },
+              ]}
+              leftAxis="Full Marks"
+              rightAxis="Obtained Marks"
+              height={400}
+            />
+
+          </div>
+        )}
+      {chart === 3 && (
+          <div className='text-center'>
+            <Typography variant="h6" component="div" sx={{ m: 2, textAlign: "left", paddingLeft: "10px" }}>
+              Performance
+            </Typography>
+            <LineChart
+              grid={{ horizontal: true }}
+              xAxis={[
+                {
+                  scaleType: 'point',
+                  data: lineWeeks,
+                  label: 'Time',// Adjust this value if needed
+                },
+              ]}
+              yAxis={[
+                { id: 'Full Marks', scaleType: 'linear' },
+                { id: 'Obtained Marks', scaleType: 'linear' },
+              ]}
+              series={[
+                { yAxisKey: 'Full Marks', data: lineFullMarks, label: 'Full Marks' },
+                { yAxisKey: 'Obtained Marks', data: lineMarks, label: 'Obtained Marks' },
+              ]}
+              leftAxis="Full Marks"
+              rightAxis="Obtained Marks"
+              height={400}
+            />
+
+          </div>
+        )}
+        {chart === 4 && (
+          <div className='text-center'>
+            <div className='text-left pl-4'>
+              <h1 className='my-6 text-xl'>Submissions</h1>
+            </div>
+
+            <div className='w-full xl:w-2/3 mx-auto'>
+              <PieChart
+                series={[
+                  {
+                    data: pieData,
+                    highlightScope: { faded: 'global', highlighted: 'item' },
+                    faded: { innerRadius: 30, additionalRadius: -20, color: 'gray' },
+                  },
+                ]}
+                height={isSmallScreen ? 100 : isMediumScreen ? 200 : 400}
+              />
+            </div>
+
+          </div>
+        )}
+        {chart === 5 && (
+          <div className='text-left pl-8'>
+            <div className='text-left'>
+              <h1 className='my-6 text-xl'>AI Suggestions</h1>
+            </div>
+            <div className='mb-4'>
+            {
+              data.progressInPath < 50 ?
+                <Chip color="danger" variant="dot">You have to work hard to improve your Progress in roadmap</Chip>
+                :
+                <Chip color="success" variant="dot">You are doing well. Keep it up!</Chip>
+            }
+            </div>
+            <div className='mb-4'>
+            {
+              data.pendingAssignments > 0 ?
+                <Chip color="danger" variant="dot">You have pending assignments</Chip>
+                :
+                <Chip color="success" variant="dot">You have no pending assignments</Chip>
+            }
+            </div>
+            <div className='mb-4'>
+            {
+              data.upcomingLiveSessions > 0 ?
+                <Chip color="danger" variant="dot">You have upcoming live sessions</Chip>
+                :
+                <Chip color="success" variant="dot">You have no upcoming live sessions</Chip>
+            }
+            </div>
+            <div className='mb-4'>
+            {
+              accuracy < 40 ?
+                <Chip color="danger" variant="dot">Your accuracy is low. You have to improve it</Chip>
+                :
+                accuracy < 70 ?
+                  <Chip color="warning" variant="dot">Your accuracy is average. You have to improve it</Chip>
+                  :
+                  <Chip color="success" variant="dot">Your accuracy is good. Keep it up!</Chip>
+            }
+            </div>
+            <div className='mb-4'>
+            {lineFullMarks[lineFullMarks.length - 1] / lineMarks[lineMarks - 1] > 30 ?
+              <Chip color="danger" variant="dot">Your previous performance in assignment was poor !!</Chip>
+              :
+              lineFullMarks[lineFullMarks.length - 1] / lineMarks[lineMarks - 1] > 60 ?
+                <Chip color="warning" variant="dot">Your previous performance in assignment was average !!</Chip>
+                :
+                <Chip color="success" variant="dot">Your previous performance in assignment was excellent !!</Chip>
+
+            }
+            </div>
+          </div>)}
+        
         
         
         
