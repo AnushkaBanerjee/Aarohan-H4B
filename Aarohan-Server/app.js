@@ -44,5 +44,9 @@ app.use("/api/v1/submissions", submissionRouter)
 import commentRouter from './src/routes/comment.routes.js'
 app.use("/api/v1/comments", commentRouter)
 
+// Live Class Endpoints
+import liveClassRouter from './src/routes/liveClasses.routes.js'
+app.use("/api/v1/live-classes", liveClassRouter)
+
 
 export { app }
