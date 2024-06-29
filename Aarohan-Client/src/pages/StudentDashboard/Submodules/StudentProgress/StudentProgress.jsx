@@ -172,6 +172,19 @@ function StudentProgress() {
         </Tabs>
       </div>
       <div className='bg-white-default p-4 rounded-md h-auto  items-center'>
+      {chart === 1 && (<div className="container items-center px-4 py-8 m-auto">
+          <div className="flex flex-wrap pb-3 mx-4 md:mx-24 lg:mx-0">
+
+            <StatCard value={data?.numberOfClasses} title="Number of Classes" />
+            <StatCard value={data?.pendingAssignments} title="Pending Assignments" />
+            <StatCard value={data?.upcomingLiveSessions} title="No of Upcoming Live Sessions" />
+            <StatCard value={data?.assignmentsAssigned} title="Assignments Assigned" />
+            <StatCard value={data?.assignmentsSubmitted} title="Assignments Submitted" />
+            <StatCard value={`${data?.progressInPath}%`} title="Progress in Path" />
+
+          </div>
+        </div>)}
+        
         
       </div>
     </div>
