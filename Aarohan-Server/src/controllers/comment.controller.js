@@ -6,9 +6,9 @@ import { Comment } from "../models/comment.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import {config} from "dotenv"
+import dotenv from "dotenv"
 
-config({
+dotenv.config({
     path: './.env'
 })
 

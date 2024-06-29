@@ -10,11 +10,11 @@ import { Submission } from "../models/submissions.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import {config} from "dotenv"
+import dotenv from "dotenv"
 import { ClassMember } from "../models/classMember.model.js";
 import axios from "axios";
 
-config({
+dotenv.config({
     path: './.env'
 })
 

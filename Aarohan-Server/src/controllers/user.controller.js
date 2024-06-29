@@ -10,10 +10,10 @@ import { Assignment } from "../models/assignment.model.js";
 import { LiveClass } from "../models/liveClasses.model.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import {config} from "dotenv"
+import dotenv from "dotenv"
 import { Class } from "../models/class.model.js";
 
-config({
+dotenv.config({
     path: './.env'
 })
 
