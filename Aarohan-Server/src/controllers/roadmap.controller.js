@@ -10,12 +10,13 @@ import { Submission } from "../models/submissions.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
+import dotenv from "dotenv"
 import { ClassMember } from "../models/classMember.model.js";
 import axios from "axios";
-import config from "config";
 
-const envConfig = config.get('env');
-process.env = { ...process.env, ...envConfig };
+dotenv.config({
+    path: './.env'
+})
 
 const createRoadmap = asyncHandler(async (req, res) => {
     const userId = req.user._id
