@@ -21,7 +21,7 @@
 
 ## Stable Features:
 
-- **AI powered continuous student performance analysis** with every solved assignment and student** data analysis for identification of strong and weak topics and **generate relevant suggestions**.
+- **AI powered continuous student performance analysis** with every solved assignment and student data analysis for identification of strong and weak topics and **generate relevant suggestions**.
   
 - **AI powered user-data specific roadmap generation** for completion within a limited time with enhanced details on topics to be covered and emphasized on.
   
