@@ -14,6 +14,10 @@ import StudentCourses from './pages/StudentDashboard/Submodules/StudentCourses/S
 import { studentInfoLoader } from './pages/StudentDashboard/StudentDashboardMain/StudentDashboardMain'
 import { studentAllCoursesInfoLoader } from './pages/StudentDashboard/Submodules/Home/Home'
 import { studentMyCoursesInfoLoader } from './pages/StudentDashboard/Submodules/StudentCourses/StudentCourses'
+import MentorDashboardMain from './pages/MentorDashboard/MentorDashboardMain/MentorDashboardMain.jsx'
+import CreateCourse from './pages/MentorDashboard/Submodules/CreateCourse/CreateCourse.jsx'
+import {mentorInfoLoader} from'./pages/MentorDashboard/MentorDashboardMain/MentorDashboardMain.jsx'
+import {mentorMyCoursesInfoLoader} from'./pages/MentorDashboard/Submodules/CreateCourse/CreateCourse.jsx'
 
 
 const router = createBrowserRouter(
@@ -34,6 +38,11 @@ const router = createBrowserRouter(
         <Route path="Progress" element={<StudentProgress />} />
         <Route path="Roadmap" element={<StudentRoadmap />} />
         <Route loader={studentMyCoursesInfoLoader} path="Courses" element={<StudentCourses />} />
+      </Route>
+
+       {/* mentor dashboard */}
+       <Route path="/Mentor/" loader={mentorInfoLoader} element={<MentorDashboardMain />}>
+        <Route path="Home" loader={mentorMyCoursesInfoLoader} element={<CreateCourse />} />
       </Route>
         
     </Route>
