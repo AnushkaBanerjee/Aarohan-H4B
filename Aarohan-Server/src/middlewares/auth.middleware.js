@@ -2,11 +2,10 @@ import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import jwt from "jsonwebtoken"
 import { User } from "../models/user.model.js";
-import {config} from "dotenv"
+import config from "config";
 
-config({
-    path: './.env'
-})
+const envConfig = config.get('env');
+process.env = { ...process.env, ...envConfig };
 
 export const verifyJWT = asyncHandler(async(req, res, next) => {
     try {

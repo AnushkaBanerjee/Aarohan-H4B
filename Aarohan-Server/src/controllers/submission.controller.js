@@ -6,15 +6,14 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { Class } from "../models/class.model.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import {config} from "dotenv"
 import { ClassMember } from "../models/classMember.model.js";
 import { Submission } from "../models/submissions.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
-config({
-    path: './.env'
-})
+import config from "config";
 
+const envConfig = config.get('env');
+process.env = { ...process.env, ...envConfig };
 
 
 

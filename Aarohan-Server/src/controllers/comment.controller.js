@@ -6,12 +6,10 @@ import { Comment } from "../models/comment.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import {config} from "dotenv"
+import config from "config";
 
-config({
-    path: './.env'
-})
-
+const envConfig = config.get('env');
+process.env = { ...process.env, ...envConfig };
 
 
 
