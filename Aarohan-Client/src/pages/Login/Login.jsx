@@ -3,9 +3,69 @@ import { Input } from "@nextui-org/react";
 import { EyeFilledIcon } from "../../components/Auth/EyeFilledIcon/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "../../components/Auth/EyeSlashFilledIcon/EyeSlashFilledIcon";
 import LoginBg from "../../assets/Login/Login.png";
+import { Backend_url } from "../../../BackendUrl";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [openSnack, setOpenSnack] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState("");
+  const [successMessage, setSuccessMessage] = React.useState("");
+  const [isError, setIsError] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSuccessMessage("");
+    setErrorMessage("");
+    setIsError(false);
+    setOpenSnack(false);
+  };
+
+  const signIn = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        `${Backend_url}/api/v1/users/login`,
+        {
+          email: email,
+          password: password,
+        }
+      );
+      document.cookie = `accessToken=${response.data.data.accessToken}; path=/;`;
+      document.cookie = `refreshToken=${response.data.data.refreshToken}; path=/;`;
+      if (response?.data.data.user.role === "student" || response?.data.data.user.role === "mentor") {
+        setSuccessMessage("Login successful");
+        setIsError(false);
+        setOpenSnack(true);
+        
+        setTimeout(() => {
+          if (response.data.data.user.role === "student") {
+            navigate("/Student/Home");
+          } else if (response.data.data.user.role === "mentor") {
+            navigate("/Mentor/Home");
+          }
+        }, 2000); // 2 seconds delay
+      }
+    } catch (error) {
+      if (error.response?.status === 404) {
+        setErrorMessage("User not found, Please sign up first");
+      } else if (error.response?.status === 401) {
+        setErrorMessage("Wrong email or password");
+      } else {
+        setErrorMessage("Server error. Please try again later");
+      }
+      setIsError(true);
+      setOpenSnack(true);
+    }
+  };
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -14,6 +74,16 @@ export default function Login() {
       className="bg-cover h-screen"
       style={{ backgroundImage: `url(${LoginBg})` }}
     >
+    <Snackbar open={openSnack} autoHideDuration={2000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} >
+        <Alert
+          onClose={handleClose}
+          severity={isError ? "error" : "success"}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {isError ? errorMessage : successMessage}
+        </Alert>
+      </Snackbar>
       <div className=" bg-gradient-to-tr from-blue-default to-blue-teal opacity-15 blur-sm"></div>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
         <div className="w-4/6 mt-40 rounded-lg  shadow-2xl shadow-blue-default md:mt-0 sm:max-w-md xl:p-0 bg-grey-default bg-opacity-50 backdrop-filter backdrop-blur-lg border border-transparent border-opacity-0">
@@ -25,6 +95,9 @@ export default function Login() {
               <Input
                 label="Email"
                 type="email"
+                value={email}
+                autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
                 color="primary"
                 radius="lg"
                 classNames={{
@@ -50,6 +123,9 @@ export default function Login() {
               <Input
                 label="Password"
                 color="primary"
+                value={password}
+                autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
                 endContent={
                   <button
                     className="focus:outline-none"
@@ -86,6 +162,7 @@ export default function Login() {
               />
               <div className="flex justify-center">
                 <button
+                  onClick={(e) => signIn(e)}
                   type="submit"
                   className="w-fit text-white-default bg-blue-default focus:ring-4 focus:outline-none focus:bg-white-default focus:text-blue-dark focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
