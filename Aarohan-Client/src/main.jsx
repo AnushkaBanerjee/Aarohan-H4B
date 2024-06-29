@@ -1,10 +1,36 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import Login from './pages/Login/Login'
+import LandingPageMain from './pages/Landing/LandingPageMain/LandingPageMain'
+import { NextUIProvider } from "@nextui-org/react";
+import SignupPage from './pages/Signup/SignupPage'
+
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      {/* auth  */}
+     
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignupPage />} />
+      
+
+      {/* landing */}
+      <Route path="" element={<LandingPageMain />}/>
+        
+    </Route>
+  )
+)
+
+
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <NextUIProvider>
+      <RouterProvider router={router} />
+    </NextUIProvider>
   </React.StrictMode>,
 )
