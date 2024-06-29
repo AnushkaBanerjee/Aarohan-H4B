@@ -14,6 +14,7 @@ import StudentCourses from './pages/StudentDashboard/Submodules/StudentCourses/S
 import { studentInfoLoader } from './pages/StudentDashboard/StudentDashboardMain/StudentDashboardMain'
 import { studentAllCoursesInfoLoader } from './pages/StudentDashboard/Submodules/Home/Home'
 import { studentMyCoursesInfoLoader } from './pages/StudentDashboard/Submodules/StudentCourses/StudentCourses'
+import GiveTest from './pages/StudentDashboard/Submodules/StudentRoadmap/Submodules/GiveTest/GiveTestMain/GiveTestMain'
 
 
 const router = createBrowserRouter(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
         <Route loader={studentMyCoursesInfoLoader} path="Courses" element={<StudentCourses />} />
       </Route>
         
+      <Route path="/Give-test/:id/" element={<GiveTest />} />
     </Route>
   )
 )
