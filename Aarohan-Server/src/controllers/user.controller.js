@@ -10,12 +10,11 @@ import { Assignment } from "../models/assignment.model.js";
 import { LiveClass } from "../models/liveClasses.model.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import dotenv from "dotenv"
 import { Class } from "../models/class.model.js";
+import config from "config";
 
-dotenv.config({
-    path: './.env'
-})
+const envConfig = config.get('env');
+process.env = { ...process.env, ...envConfig };
 
 
 const generateAccessAndRefereshTokens = async(userId) =>{

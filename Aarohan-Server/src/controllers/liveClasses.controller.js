@@ -8,12 +8,12 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import dotenv from "dotenv"
 import { ClassMember } from "../models/classMember.model.js";
 
-dotenv.config({
-    path: './.env'
-})
+import config from "config";
+
+const envConfig = config.get('env');
+process.env = { ...process.env, ...envConfig };
 
 
 const createLiveClass = asyncHandler( async (req, res) => {

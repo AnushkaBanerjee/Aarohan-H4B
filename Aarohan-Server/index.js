@@ -1,10 +1,9 @@
-import dotenv from "dotenv"
+import config from "config";
 import connectDB from "./src/db/index.js";
 import {app} from './app.js'
 
-dotenv.config({
-    path: './.env'
-})
+const envConfig = config.get('env');
+process.env = { ...process.env, ...envConfig };
 
 connectDB()
 .then(() => {
