@@ -184,6 +184,32 @@ function StudentProgress() {
 
           </div>
         </div>)}
+        {chart === 2 && (
+          <div className='text-center md:flex md:justify-center'>
+            <div className='md:mr-16'>
+              <Gauge
+                value={accuracy}
+                startAngle={-110}
+                endAngle={110}
+                sx={{
+                  width: isMediumScreen ? 200 : 350,
+                  height: isMediumScreen ? 200 : 350,
+                  marginX: 'auto',
+                  [`& .${gaugeClasses.valueText}`]: {
+                    fontSize: isMediumScreen ? 20 : 35,
+                    transform: 'translate(0px, 0px)',
+                  },
+                }}
+                text={({ value, valueMax }) => `${value} / ${valueMax}`}
+              />
+              <Typography variant="h6" component="div" sx={{ mb: 2 }}>
+                Accuracy Meter
+              </Typography>
+            </div>
+            
+          </div>
+        )}
+        
         
         
       </div>
