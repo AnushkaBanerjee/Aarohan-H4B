@@ -4,7 +4,7 @@
 
 ### Aarohan is a unique AI powered, virtual-learning platform that harnesses the latest modern Artificial Intelligence models to *statistically analyze student performance and teacher feedbacks respectively, integrate them with respect to the student's individual learning interests, capacity and teacher's feedback to statistically provide them with the best study materials, roadmaps, performance and sentiment analysis* to help each of them receive quality education and improve themselves further according to their personalized learning capacities.
 
-##
+![architechture](https://github.com/AnushkaBanerjee/Aarohan-H4B/assets/142105763/fd8d2c61-5f03-4e99-9379-6b63aac288ec)
 
 ## Continue Reading....
 
@@ -100,3 +100,4 @@ git clone https://github.com/AnushkaBanerjee/Aarohan-H4B.git
     npm run dev
     ```
   - And you are good to go
+
