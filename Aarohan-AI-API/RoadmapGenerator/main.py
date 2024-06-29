@@ -551,3 +551,10 @@ def generateQuestion(subject:str, semester:int, subtopics:str, format:str):
     prompt = f'Generate a set of 5 questions for Semester {semester} {subject} only on the subtopics {subtopics} in the format {format}. Please stick to the format and change only values and not the keys.'
     result = model.generate_content(prompt)
     return result.text
+
+def moderate_json_content(text):
+    try:
+        text = text.split('```json')[1].split('```')[0].strip()
+        return json.loads(text)
+    except:
+        return 'Could not process the generated questions'
