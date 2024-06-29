@@ -8,10 +8,10 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import {config} from "dotenv"
 import { ClassMember } from "../models/classMember.model.js";
 
-dotenv.config({
+config({
     path: './.env'
 })
 

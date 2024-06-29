@@ -8,12 +8,12 @@ import { Submission } from "../models/submissions.model.js";
 import { Feedback } from "../models/feedback.model.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import {config} from "dotenv"
 import { ClassMember } from "../models/classMember.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import axios from "axios"
 
-dotenv.config({
+config({
     path: './.env'
 })
 
@@ -226,6 +226,63 @@ const giveAssignmentFeedback = asyncHandler( async (req, res) => {
     return res.status(201).json(
         new ApiResponse(201, feedback, "Feedback Added Successfully")
     )
+
+})
+
+const giveReminder = asyncHandler( async (req, res) => {
+    const assignmentId = req.query.assignmentId
+    const userId = req.user._id
+
+    const assignment = await Assignment.findById(assignmentId)
+    if (!assignment) {
+        throw new ApiError(400, "Assignment not found")
+    }
+
+    const isClassMember = await ClassMember.findOne({
+        member: userId,
+        class: assignment.class,
+        status: "accepted"
+    })
+
+    if (!isClassMember) {
+        throw new ApiError(400, "You are not member of this class")
+    }
+
+    const classId = assignment.class;
+    const deadline = new Date(assignment.deadline).toLocaleString();
+
+    const contactNumbers = await ClassMember.aggregate([
+        {
+            $match: {
+                class: classId, // Replace classId with the actual class ID
+                status: "accepted"
+            }
+        },
+        {
+            $lookup: {
+                from: "users",
+                localField: "member",
+                foreignField: "_id",
+                as: "userDetails"
+            }
+        },
+        {
+            $unwind: "$userDetails"
+        },
+        {
+            $group: {
+                _id: null,
+                contactNumbers: { $push: "$userDetails.contactNo" } // Replace contactNo with the actual field name for contact number in the User schema
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                contactNumbers: 1
+            }
+        }
+    ])
+
 
 })
 
