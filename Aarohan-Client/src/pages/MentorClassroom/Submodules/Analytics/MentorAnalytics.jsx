@@ -168,11 +168,11 @@ function MentorAnalytics() {
       const classPositiveFeedbacks = classFeedbacks.filter(
         (feedback) => feedback.emotion === "POSITIVE"
       );
-      setClassPositiveFeedback(classPositiveFeedbacks[0].count);
+      setClassPositiveFeedback(classPositiveFeedbacks[0]?.count);
       const classNegativeFeedbacks = classFeedbacks.filter(
         (feedback) => feedback.emotion === "NEGATIVE"
       );
-      setClassNegativeFeedback(classNegativeFeedbacks[0].count);
+      setClassNegativeFeedback(classNegativeFeedbacks[0]?.count);
       setAssignmentFeedbackEmotions(response.data.data.assignmentFeedbacksEmotions);
       setMaterialFeedbackEmotions(response.data.data.materialFeedbacksEmotions);
       setAssignmentScores(response.data.data.assignmentStarsCount);

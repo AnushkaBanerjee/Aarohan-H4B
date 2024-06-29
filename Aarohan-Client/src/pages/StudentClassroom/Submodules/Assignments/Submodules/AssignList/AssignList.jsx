@@ -71,7 +71,7 @@ export default function AssignList({ courseAssignments }) {
       if (response.data && response.data.success) {
 
         setSuccessMessage("Assignment submitted successfully");
-        setIsError(true);
+        setIsError(false);
         setOpenSnack(true);
       } else {
         // console.error("Error submitting assignment:", response.data.message);
