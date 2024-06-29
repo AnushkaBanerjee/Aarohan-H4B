@@ -74,8 +74,8 @@ function SignupPage() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // console.log('Form Data:', formData);
-        // console.log('File:', file);
+        console.log('Form Data:', formData);
+        console.log('File:', file);
         try {
             const response = await axios.post(
                 `${Backend_url}/api/v1/users/register`,
