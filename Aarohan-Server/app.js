@@ -36,5 +36,21 @@ app.use("/api/v1/materials", materialRouter)
 import assignmentRouter from './src/routes/assignment.routes.js'
 app.use("/api/v1/assignments", assignmentRouter)
 
+// Submission Endpoints
+import submissionRouter from './src/routes/submission.routes.js'
+app.use("/api/v1/submissions", submissionRouter)
+
+// Comment Endpoints
+import commentRouter from './src/routes/comment.routes.js'
+app.use("/api/v1/comments", commentRouter)
+
+// Live Class Endpoints
+import liveClassRouter from './src/routes/liveClasses.routes.js'
+app.use("/api/v1/live-classes", liveClassRouter)
+
+// Roadmap Endpoints
+import roadmapRouter from './src/routes/roadmap.routes.js'
+app.use("/api/v1/roadmaps", roadmapRouter)
+
 
 export { app }
