@@ -55,7 +55,6 @@ function Profile({ isStudent, userData }) {
                 }
             });
 
-            setReload(true);
             setSuccessMessage("Profile updated successfully");
             setIsError(false);
             setOpenSnack(true);
