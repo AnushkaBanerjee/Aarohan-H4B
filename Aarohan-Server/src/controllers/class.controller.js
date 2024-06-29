@@ -11,11 +11,11 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { Feedback } from "../models/feedback.model.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import {config} from "dotenv"
 const { ObjectId } = mongoose.Types;
 import axios from "axios"
 
-dotenv.config({
+config({
     path: './.env'
 })
 

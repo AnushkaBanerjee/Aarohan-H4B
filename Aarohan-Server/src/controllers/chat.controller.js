@@ -5,9 +5,9 @@ import { Chat } from "../models/chat.model.js"
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import {config} from "dotenv"
 
-dotenv.config({
+config({
     path: './.env'
 })
 
