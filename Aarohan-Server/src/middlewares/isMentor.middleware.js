@@ -2,10 +2,11 @@ import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import jwt from "jsonwebtoken"
 import { User } from "../models/user.model.js";
-import config from "config";
+import dotenv from "dotenv"
 
-const envConfig = config.get('env');
-process.env = { ...process.env, ...envConfig };
+dotenv.config({
+    path: './.env'
+})
 
 export const isMentor = asyncHandler(async(req, res, next) => {
     try {

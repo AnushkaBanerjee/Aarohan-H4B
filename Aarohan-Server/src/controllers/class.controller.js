@@ -11,13 +11,13 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { Feedback } from "../models/feedback.model.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
+import dotenv from "dotenv"
 const { ObjectId } = mongoose.Types;
 import axios from "axios"
 
-import config from "config";
-
-const envConfig = config.get('env');
-process.env = { ...process.env, ...envConfig };
+dotenv.config({
+    path: './.env'
+})
 
 
 const createClass = asyncHandler(async (req, res) => {

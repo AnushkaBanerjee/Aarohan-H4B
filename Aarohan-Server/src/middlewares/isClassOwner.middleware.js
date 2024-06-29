@@ -3,10 +3,11 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import jwt from "jsonwebtoken"
 import { User } from "../models/user.model.js";
 import { Class } from "../models/class.model.js";
-import config from "config";
+import dotenv from "dotenv"
 
-const envConfig = config.get('env');
-process.env = { ...process.env, ...envConfig };
+dotenv.config({
+    path: './.env'
+})
 
 export const isClassOwner = asyncHandler(async(req, res, next) => {
     try {
