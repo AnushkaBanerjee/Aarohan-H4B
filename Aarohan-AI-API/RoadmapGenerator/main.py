@@ -63,7 +63,7 @@ generation_config = {
 }
 
 model = genai.GenerativeModel(
-  model_name="gemini-1.5-flash",
+  model_name="gemini-1.5-pro",
   generation_config=generation_config,
   # safety_settings = Adjust safety settings
   # See https://ai.google.dev/gemini-api/docs/safety-settings
@@ -81,16 +81,7 @@ def load_chats():
     upload_to_gemini(os.path.join(syllabus_dir, "5.pdf"), mime_type="application/pdf"),
     upload_to_gemini(os.path.join(syllabus_dir, "4.pdf"), mime_type="application/pdf"),
     upload_to_gemini(os.path.join(syllabus_dir, "3.pdf"), mime_type="application/pdf"),
-    upload_to_gemini(os.path.join(syllabus_dir, "1_2.pdf"), mime_type="application/pdf"),
-
-
-  #   upload_to_gemini("syllabus/8.pdf", mime_type="application/pdf"),
-  #   upload_to_gemini("syllabus/7.pdf", mime_type="application/pdf"),
-  #   upload_to_gemini("syllabus/6.pdf", mime_type="application/pdf"),
-  #   upload_to_gemini("syllabus/5.pdf", mime_type="application/pdf"),
-  #   upload_to_gemini("syllabus/4.pdf", mime_type="application/pdf"),
-  #   upload_to_gemini("syllabus/3.pdf", mime_type="application/pdf"),
-  #   upload_to_gemini("syllabus/1_2.pdf", mime_type="application/pdf"),
+    upload_to_gemini(os.path.join(syllabus_dir, "1_2.pdf"), mime_type="application/pdf")
   ]
 
   # Some files have a processing delay. Wait for them to be ready.
