@@ -107,7 +107,15 @@ function StudentProgress() {
   const theme = useTheme();
   const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  
+  // const times = [
+  //   new Date('2024-05-25T11:51:33').toLocaleString('en-GB'),
+  //   new Date('2024-06-25T12:51:33').toLocaleString('en-GB'),
+  //   new Date('2024-06-25T13:51:33').toLocaleString('en-GB'),
+  //   new Date('2024-06-25T14:51:33').toLocaleString('en-GB'),
+  //   new Date('2024-06-25T15:51:33').toLocaleString('en-GB'),
+  //   new Date('2024-06-25T16:51:33').toLocaleString('en-GB'),
+  //   new Date('2024-07-25T17:51:33').toLocaleString('en-GB')
+  // ];
   const pieData = [
     { id: 0, value: data?.assignmentsAssigned - data?.assignmentsSubmitted, label: 'Pending' },
     { id: 1, value: markedAssignments, label: 'Marked' },
@@ -172,7 +180,7 @@ function StudentProgress() {
         </Tabs>
       </div>
       <div className='bg-white-default p-4 rounded-md h-auto  items-center'>
-      {chart === 1 && (<div className="container items-center px-4 py-8 m-auto">
+        {chart === 1 && (<div className="container items-center px-4 py-8 m-auto">
           <div className="flex flex-wrap pb-3 mx-4 md:mx-24 lg:mx-0">
 
             <StatCard value={data?.numberOfClasses} title="Number of Classes" />
@@ -182,9 +190,11 @@ function StudentProgress() {
             <StatCard value={data?.assignmentsSubmitted} title="Assignments Submitted" />
             <StatCard value={`${data?.progressInPath}%`} title="Progress in Path" />
 
+
+
           </div>
         </div>)}
-      {chart === 2 && (
+        {chart === 2 && (
           <div className='text-center md:flex md:justify-center'>
             <div className='md:mr-16'>
               <Gauge
@@ -206,39 +216,29 @@ function StudentProgress() {
                 Accuracy Meter
               </Typography>
             </div>
-            
+            {/* <div>
+              <Gauge
+                value={75}
+                startAngle={-110}
+                endAngle={110}
+                sx={{
+                  width: isMediumScreen ? 200 : 350,
+                  height: isMediumScreen ? 200 : 350,
+                  marginX: 'auto',
+                  [`& .${gaugeClasses.valueText}`]: {
+                    fontSize: isMediumScreen ? 20 : 35,
+                    transform: 'translate(0px, 0px)',
+                  },
+                }}
+                text={({ value, valueMax }) => `${value} / ${valueMax}`}
+              />
+              <Typography variant="h6" component="div" sx={{ mb: 2 }}>
+                Feedback Meter
+              </Typography>
+            </div> */}
           </div>
         )}
-      {chart === 3 && (
-          <div className='text-center'>
-            <Typography variant="h6" component="div" sx={{ m: 2, textAlign: "left", paddingLeft: "10px" }}>
-              Performance
-            </Typography>
-            <LineChart
-              grid={{ horizontal: true }}
-              xAxis={[
-                {
-                  scaleType: 'point',
-                  data: lineWeeks,
-                  label: 'Time',// Adjust this value if needed
-                },
-              ]}
-              yAxis={[
-                { id: 'Full Marks', scaleType: 'linear' },
-                { id: 'Obtained Marks', scaleType: 'linear' },
-              ]}
-              series={[
-                { yAxisKey: 'Full Marks', data: lineFullMarks, label: 'Full Marks' },
-                { yAxisKey: 'Obtained Marks', data: lineMarks, label: 'Obtained Marks' },
-              ]}
-              leftAxis="Full Marks"
-              rightAxis="Obtained Marks"
-              height={400}
-            />
-
-          </div>
-        )}
-      {chart === 3 && (
+        {chart === 3 && (
           <div className='text-center'>
             <Typography variant="h6" component="div" sx={{ m: 2, textAlign: "left", paddingLeft: "10px" }}>
               Performance
@@ -340,10 +340,6 @@ function StudentProgress() {
             }
             </div>
           </div>)}
-        
-        
-        
-        
       </div>
     </div>
   );
