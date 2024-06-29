@@ -48,5 +48,9 @@ app.use("/api/v1/comments", commentRouter)
 import liveClassRouter from './src/routes/liveClasses.routes.js'
 app.use("/api/v1/live-classes", liveClassRouter)
 
+// Roadmap Endpoints
+import roadmapRouter from './src/routes/roadmap.routes.js'
+app.use("/api/v1/roadmaps", roadmapRouter)
+
 
 export { app }
