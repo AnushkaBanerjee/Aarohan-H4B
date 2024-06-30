@@ -86,6 +86,13 @@ git clone https://github.com/AnushkaBanerjee/Aarohan-H4B.git
     ```
     
 2. ## Setting up the Backend:
+  - ```bash
+    cd Aarohan-Server
+    npm i
+    ```
+  - ```bash
+    npm run dev
+    ``` 
   
 3. ### Setting Up the frontend:
   
