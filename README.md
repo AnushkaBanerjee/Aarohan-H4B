@@ -31,7 +31,7 @@
   
 - **AI powered sentiment analysis and performance analysis and prediction**.
   
-- **Full fledged virtual classroom integration** with teacher and student roles for individual uses. Teachers are permitted to** create courses, assignments and upload materials** while students are permitted to **join courses according to their syllabus and interests, solve and upload assignments** and refer to the materials for help.
+- **Full fledged virtual classroom integration** with teacher and student roles for individual uses. Teachers are permitted to create courses, assignments and upload materials while students are permitted to **join courses according to their syllabus and interests, solve and upload assignments** and refer to the materials for help.
   
 - **Instant meeting creation** and joining feature **all integrated in a single place** with no external distractions.
   
